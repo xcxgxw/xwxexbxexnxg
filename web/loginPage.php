@@ -25,7 +25,7 @@
                 <a class="nav-link" href="aboutus.php">About Us</a>
             </li>
             </ul>         
-            <button class="btn btn-secondary my-2 my-sm-0" type="button">Login</button>  
+            
         </div>
     </nav>
     
