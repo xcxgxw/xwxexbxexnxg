@@ -7,7 +7,8 @@
   <link rel="stylesheet" type="text/css" href="design.css">
   <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
 </head>
-<body>
+<body style="background-image: url('collab.jpg')">
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <img class="logo" src="logo.png" alt="ccplogo" width="40" height="30">
         <a class="navbar-brand" href="#">Company Collaborative Platform</a>
@@ -27,18 +28,36 @@
             <button class="btn btn-secondary my-2 my-sm-0" type="button">Login</button>  
         </div>
     </nav>
+    
+    <form action="#" method='get'>
 
-    <form action="#" method="get">
-        <legend>User Account Login</legend>
-            <div class="form-group">
+        <legend style="text-align: center; margin-top: 170px">User Account Login</legend>
+
+        <div class="form-row">
+            <div class="form-group col-md-4"></div>
+            <div class="form-group col-md-4">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4"></div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4"></div>
+            <div class="form-group col-md-4">
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <div class="form-group col-md-4"></div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4"></div>
+            <button type="submit" class="btn btn-primary col-md-4">Login</button>
+            <div class="form-group col-md-4"></div>
+        </div>  
+
     </form>
+
 </body>
 </html>
