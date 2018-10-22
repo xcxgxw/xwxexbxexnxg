@@ -4,7 +4,7 @@
         <title>CCP</title>
         <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="viewport" content="width=device-width, initial-scale=1">     
         <link rel="stylesheet" type="text/css" href="design.css">
                 <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
             </head>
@@ -20,10 +20,9 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/mainPage.php">Home</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/mainPage.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/aboutus.php">About Us</a>
             </li>
