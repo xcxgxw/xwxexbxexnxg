@@ -9,7 +9,7 @@
             <nav>
                 <div class="left-nav">
                     <ul>
-                        <li><a href="#">CCP</li>
+                        <li><a href="#">Company Collaborative Platform</li>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
                     </ul>
