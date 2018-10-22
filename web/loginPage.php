@@ -29,7 +29,7 @@
         </div>
     </nav>
     
-    <form action="#" method='get'>
+    <form action="discussion_thread.php" method='get'>
 
         <legend style="text-align: center; margin-top: 170px">User Account Login</legend>
 
@@ -53,7 +53,7 @@
 
         <div class="form-row">
             <div class="form-group col-md-4"></div>
-            <button type="submit" class="btn btn-primary col-md-4">Login</button>
+            <button type="submit" class="btn btn-primary col-md-4" href="discussion_thread.php">Login</button>
             <div class="form-group col-md-4"></div>
         </div>  
 
