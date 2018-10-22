@@ -4,6 +4,7 @@
 <title>Login Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="design.css">
   <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
 </head>
 <body>
@@ -22,7 +23,7 @@
                 <a class="nav-link" href="#">About Us</a>
             </li>
             </ul>         
-            <button class="btn btn-secondary my-2 my-sm-0" value="login">Login</button>       
+            <button class="btn btn-secondary my-2 my-sm-0" type="button">Login</button>  
         </div>
     </nav>
 </body>

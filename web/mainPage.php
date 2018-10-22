@@ -6,7 +6,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <link rel="stylesheet" type="text/css" href="design.css">
-<<<<<<< HEAD
                 <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
             </head>
 
@@ -49,30 +48,6 @@
                 <img src="african.jpg" class="img-fluid">
                 <button type="button" class="btn btn-dark my-2 my-sm-0">Get Started</button>
             </div>
-=======
-    </head>
-
-    <body>
-        <header class="head-container">
-            <nav>
-                <div class="left-nav">
-                    <ul>
-                        <li><a href="#">Company Collaborative Platform</li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                    </ul>
-                </div>
-                <div class="right-nav">
-                    <ul>
-                        <li><a href="#">Login</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <div class="center-container">
-            <img class="image1" src="african.jpg" alt="homeImage">    
-            <button class="button1">Get Started</button>
->>>>>>> 5a5c91c0b8d9ddd081389a929029c5b5cae55e39
         </div>
     
         </body>
