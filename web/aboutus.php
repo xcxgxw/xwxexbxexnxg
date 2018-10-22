@@ -37,8 +37,7 @@
         </nav>    
 
             <div class="center-container">
-                <img src="african.jpg" class="img-fluid">
-                <button type="button" class="btn btn-dark my-2 my-sm-0">Get Started</button>
+                <img src="collab.jpg" class="img-fluid">
             </div>
         </div>
     

@@ -12,12 +12,8 @@
             <body>
             
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-<<<<<<< HEAD
         <img class="logo" src="logo.png" alt="ccplogo" width="40" height="30">
         <a class="navbar-brand" href="#">Company Collaboration Platform</a>
-=======
-        <a class="navbar-brand" href="#">Company Collaborative Platform</a>
->>>>>>> ee4152018661fccaa524a1f964d919eb739287be
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,18 +36,8 @@
         </div>
         </nav>    
 
-<<<<<<< HEAD
-=======
-
-
-        
-            <div class="jumbotron text-center">
-                <h1>A Platform Where You Can Fuck The CEO</h1>
-            </div>
-          
->>>>>>> ee4152018661fccaa524a1f964d919eb739287be
             <div class="center-container">
-                <img src="african.jpg" class="img-fluid">
+                <img src="collab.jpg" class="img-fluid">
                 <form action ="loginPage.php">
                         <input type ="submit" class ="btn btn-dark" name = "logInBtn" value = "Get Started ">
                 </form> 
