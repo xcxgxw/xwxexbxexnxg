@@ -23,9 +23,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/mainPage.php">Home</a>
             </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/aboutus.php">About Us</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/aboutus.php">About Us <span class="sr-only">(current)</span></a>
             </li>
             </ul>
             
