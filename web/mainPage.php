@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
+    
+<title> CCP </title>
+<head>
         <link rel="stylesheet" type="text/css" href="design.css">
     </head>
 
