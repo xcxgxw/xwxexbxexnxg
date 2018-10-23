@@ -5,10 +5,6 @@
 <?php include "include/navigation.php"?>
 
 
-
-
-
-
     <div id="page-wrapper">
 
         <div class="container-fluid">
@@ -21,26 +17,6 @@
       Announcement
       <small>CCP</small>
       </h1>
-
-      <table class="table table-borded tale-hover">
-          <thead>
-              <tr>
-                  <th>Author</th>
-                  <th>Date</th>
-                  <th>Announcement</th>
-              </tr>
-          </thead>
-          <tbody>
-          <tr>
-              <td>Malone No Party</td>
-              <td>23 october 2018</td>
-              <td>Play dota or sleep</td>
-          </tr>
-      </tbody>
-      </table>
-
-
-
 
       <?php
          if(isset($_POST['create_post'])){
@@ -76,7 +52,4 @@
         </div>
         <!-- /.container-fluid -->
 
-    </div>
-    <!-- /#page-wrapper -->
-
-  
+        </div>

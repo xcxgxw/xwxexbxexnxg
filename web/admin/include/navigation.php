@@ -40,16 +40,19 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Announcement <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="announcement.php">View All Announcements</a>
+                                <a href="view_announcement.php">View All Announcements</a>
                             </li>
                             <li>
-                                <a href="#">Post Announcement</a>
+                                <a href="post_announcement.php">Post Announcement</a>
                             </li>
                         </ul>
                     </li>
          
                     <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Discussion</a>
+                    </li>
+                    <li>
+                        <a href="calendar.php"><i class="fa fa-fw fa-edit"></i> Calender</a>
                     </li>
  
                 </ul>
