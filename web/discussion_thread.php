@@ -64,9 +64,11 @@
           <button class="channels__button"><span>Annual Dinner</span></button>
         </li>
       </ul>
+      <form action="calendar.php">
       <button class="team-menu__name" style ="padding-left: 15px ;padding-top: 10px">
             Calendar
           </button>
+          </form>
     </div>
 
 
