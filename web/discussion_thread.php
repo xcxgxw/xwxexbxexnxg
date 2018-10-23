@@ -3,6 +3,29 @@
 
 
      <script>
+     function comment1(){
+            document.getElementById("title").innerHTML = "Expensive Canteen Food";
+            document.getElementById("thread1").innerHTML ="burgerhong: Yesterday I ate kuay png, it costed my RM 16.90, damn expensive sia";
+            document.getElementById("thread2").innerHTML ="senglol: Ya lo, walao how eat wor like this";
+            document.getElementById("thread3").innerHTML ="burgerhong: Let's report it to boss ok?";
+            document.getElementById("thread4").innerHTML ="senglol: Okok on";
+            }
+
+        function comment2(){
+            document.getElementById("title").innerHTML = "Low Salary";
+            document.getElementById("thread1").innerHTML ="A: Recently i notice after SST, my income is not enough for my outcome";
+            document.getElementById("thread2").innerHTML ="B: ya lor";
+            document.getElementById("thread3").innerHTML ="C: I think we need to propose this to our boss Mr Beh";
+            document.getElementById("thread4").innerHTML ="";
+        }
+           
+        function addtopic(){
+          var topic = prompt("Please enter your topic title");
+          if (topic != null) {
+          document.getElementById("topictitle").innerHTML = topic
+          document.getElementById("title").innerHTML = topic
+    }
+        }
      
      
      function loadHR(){
@@ -76,11 +99,8 @@
   <nav class="teams">
     <ul class="teams__list">
       <li class="teams__item">
-<<<<<<< HEAD
-        <button class="teams__button ">
-=======
-        <button class="teams__button teams__button--active" onclick="loadHR()">
->>>>>>> cfeac5c927b026185031fcb0344fc2a3c4a881db
+
+        <button class="teams__button" onclick="loadHR()">
           HR
         </button>
       </li>
@@ -128,43 +148,29 @@
         <li class="channels__item" id="li3">
           <button class="channels__button"><span id ="span" >Annual Dinner</span></button>
         </li>
-<<<<<<< HEAD
+        <li class="channels__item" id="li4">
+        <button class="channels__button" id="topictitle"><span id ="span" ></span></button>
+        </li>
         <li>
-        <button class="team-menu" ><h1 class="team-menu__name">Start A New Topic</h1>
+        <button onclick="addtopic()" class="team-menu" ><h1 class="team-menu__name">Start A New Topic</h1>
           </button>
           </li>
           <li>
-        <form action="calendar.php">
+        <form action="admin/calendar.php">
       <button class="team-menu"><h1 class="team-menu__name">Company Event Calendar</h1>
           </button>
           </form>
           </li> 
       </ul>
-      
-=======
-      </ul>
-
-
-
-
-
-
-      <form action="calendar.php">
-      <button class="team-menu__name" style ="padding-left: 15px ;padding-top: 10px">
-            Calendar
-          </button>
-          </form>
->>>>>>> cfeac5c927b026185031fcb0344fc2a3c4a881db
     </div>
 
 
     
   </div>
   <div class='app-layout'>
-  <div class='header box'>TITLE</div>
+  <div class='header box'><p id="title"></p></div>
     <div class='messages box'>
       <ul class='message-list'>
-<<<<<<< HEAD
         <li><p id="thread1"></p> </li>
         <li><p id="thread2"></p></li>
         <li><p id="thread3"></p></li>
@@ -175,22 +181,6 @@
         <li><p id="thread8"></p></li>
         <li><p id="thread9"></p></li>
         <li><p id="thread10"></p></li>
-=======
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
->>>>>>> cfeac5c927b026185031fcb0344fc2a3c4a881db
       </ul>
     </div>
     <div class='input box'>
