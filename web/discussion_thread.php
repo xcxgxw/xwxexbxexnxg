@@ -41,6 +41,7 @@
     <div class="threads">
       <span class="ion-chatbubble-working threads__icon"></span> All Threads
     </div>
+    <script
     <div class="channels">
       <h2 class="channels__heading">
         <span>Lists <span class="channels__number">(5)</span>
@@ -49,10 +50,10 @@
       </h2>
       <ul class="channels__list">
         <li class="channels__item">
-          <button class="channels__button"><span>Expensive Canteen Food</span></button>
+          <button onclick="comment1()" class="channels__button"><span>Expensive Canteen Food</span></button>
         </li>
         <li class="channels__item">
-          <button class="channels__button"><span>Low Salary</span></button>
+          <button onclick="comment2()" class="channels__button"><span>Low Salary</span></button>
         </li>
         <li class="channels__item">
           <button class="channels__button"><span>Company Annual Trip</span></button>
