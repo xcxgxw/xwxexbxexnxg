@@ -8,12 +8,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">CCP Admin</a>
+                <a class="navbar-brand" href="#">CCP Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
 
-                <li><a href="../loginPage.php">HOME</a></li>
+                <li><a href="#">HOME</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Malone <b class="caret"></b></a>
@@ -23,7 +23,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="../loginPage.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
 
                       <li>
@@ -49,7 +49,7 @@
                     </li>
          
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Discussion</a>
+                        <a href="discussion_thread.php"><i class="fa fa-fw fa-edit"></i> Discussion</a>
                     </li>
                     <li>
                         <a href="calendar.php"><i class="fa fa-fw fa-edit"></i> Calender</a>

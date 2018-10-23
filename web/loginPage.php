@@ -32,7 +32,7 @@
         </div>
     </nav>
     
-    <form action="discussion_thread.php" class ="container" method='get'>
+    <form action="user" class ="container" method='get'>
 
         <legend style="text-align: center; margin-top: 170px"><font color ="black"><u><b>User Account Login</b></u></font></legend>
 
