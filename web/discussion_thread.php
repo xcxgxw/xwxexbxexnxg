@@ -24,6 +24,10 @@
           if (topic != null) {
           document.getElementById("topictitle").innerHTML = topic
           document.getElementById("title").innerHTML = topic
+          document.getElementById("thread1").innerHTML ="";
+          document.getElementById("thread2").innerHTML ="";
+          document.getElementById("thread3").innerHTML ="";
+          document.getElementById("thread4").innerHTML ="";
     }
         }
      
