@@ -9,7 +9,8 @@
     <script src="main.js"></script>
     <style>
     body{
-        background:grey;
+        background-image: url("collab.jpg");
+
     }
     .container{
         max-width:800px;
@@ -18,12 +19,12 @@
     }
     .month{
         text-align:center;
-        background:purple;
+        background:wheat;
         font-size:2.5em;
         letter-spacing:1px;
-        color:white;
+        color:dimgray;
         padding:25px;
-        border:1px solid skyblue;
+        border:1px solid black;
     }
     table, th,td{
         width:100%;
@@ -31,26 +32,28 @@
         text-align:center;
         font-size:17px;
         border-collapse:collapse;
-        border:1px solid skyblue;
+        border:1px solid black;
     }
     tr,th,td{
         padding:15px;
     }
     th{
-        background:red;
-        color:white;
+        color:black;
     }
-    td{
-        background:green;
-    }
+     tr{
+         color:black;    
+     }
+   
     td:hover{
-        background:orange;
+        background:silver;
     }
     </style>
 </head>
 <body>
+
 <div class="container">
  <div class="month">
+ 
  <strong> October </strong>
   <br>
   <strong>2018</strong>
