@@ -63,12 +63,14 @@
         <li class="channels__item">
           <button class="channels__button"><span>Annual Dinner</span></button>
         </li>
-      </ul>
-      <form action="calendar.php">
+        <li><form action="calendar.php">
       <button class="team-menu__name" style ="padding-left: 15px ;padding-top: 10px">
-            Calendar
+            Company Event Calendar
           </button>
-          </form>
+          </form> 
+          </li> 
+      </ul>
+      
     </div>
 
 
