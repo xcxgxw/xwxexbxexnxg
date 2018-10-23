@@ -1,7 +1,5 @@
 <!DOCTYPE HTML>
         <html>
-        
-     <script src="js.js"></script>
      <link rel ="stylesheet" href = "threadDesign.css" type = "text/css">
 
       <style>ul.channels_lists{list-style-type: none;}</style>
@@ -66,7 +64,7 @@
           <button class="channels__button"><span>Annual Dinner</span></button>
         </li>
       </ul>
-      <button class="teams__button">
+      <button class="team-menu__name" style ="padding-left: 15px ;padding-top: 10px">
             Calendar
           </button>
     </div>

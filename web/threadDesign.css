@@ -47,12 +47,6 @@ strong {
   font-weight: 700;
 }
 
-ul {
-    list-style: none; /* Remove list bullets */
-    padding: 0;
-    margin: 0;
-}
-
 button {
   border: none;
   background: none;
@@ -82,6 +76,7 @@ button:focus, button:hover, button:active {
 
 .teams {
   width: 75px;
+  z-index: 2;
   position: relative;
   height: 100%;
   background: var(--column-bg, #ae0001);
@@ -486,6 +481,12 @@ button:focus, button:hover, button:active {
   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/60485/monument.png");
 }
 
+ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
 .box {
   color: #fff;
   padding: 1em;
@@ -517,7 +518,7 @@ input {
   display: grid;
   height: 100vh;
   width: 100%;
-  position:absolute;
+  position: absolute;
   grid-template-columns: 100px 250px 1fr;
   grid-template-rows: auto 1fr auto;
 }
