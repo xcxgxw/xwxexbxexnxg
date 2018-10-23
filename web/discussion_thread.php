@@ -1,61 +1,88 @@
 <!DOCTYPE HTML>
         <html>
-            
-        <title>CCP</title>
-        <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">        
-        <link rel="stylesheet" type="text/css" href="threadDesign.css">
-                <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
-            </head>
+        
+     <script src="js.js"></script>
+     <link rel ="stylesheet" href = "threadDesign.css" type = "text/css">
 
             <body>
-
-           <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Company Collaboration Platform</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-            </li>
-            </ul>
-            </nav>
-
-        <div class='app-layout'>
-    <div class='teams box'>Teams
-    <nav class='teams'>
+        <div class="slack">
+  <nav class="teams">
     <ul class="teams__list">
-    <li class="teams__item">
-    <button class="teams__button teams__button--active">HR</button>
-        </li>
-        
-        <li class="teams__item">
-    <button class="teams__button teams__button--active">MGMT</button>
-        </li>
-        </ul>
-</nav>
-</div>
-    <div class='channels box'>Topic
-    <ul class="channel__list">
-    <li class="channel__item">
-    <a>Canteen Food Pricing</a>
-    </li>
+      <li class="teams__item">
+        <button class="teams__button teams__button--active">
+          HR
+        </button>
+      </li>
+      <li class="teams__item">
+        <button class="teams__button">
+          MG
+        </button>
+      </li>
+      <li class="teams__item">
+        <button class="teams__button">
+          PS
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <div class="sidebar">
+    <button class="team-menu">
+      <div class="team-menu__info">
+        <h1 class="team-menu__name">Human Resource Department</h1>
+        <div class="team-menu__status">
+          <span class="team-menu__username">burgerhong</span>
+        </div>
+      </div>
+      <span class="team-menu__alarm ion-ios-bell-outline"></span>
+    </button>
+    <div class="threads">
+      <span class="ion-chatbubble-working threads__icon"></span> All Threads
     </div>
-    <div class='header box'>Title_of_topic</div>
+    <div class="channels">
+      <h2 class="channels__heading">
+        <span>Lists <span class="channels__number">(5)</span>
+        </span>
+        <button class="ion-ios-plus-outline channels__add"></button>
+      </h2>
+      <ul class="channels__list">
+        <li class="channels__item">
+          <button class="channels__button"><span>Expensive Canteen Food</span></button>
+        </li>
+        <li class="channels__item">
+          <button class="channels__button"><span>Low Salary</span></button>
+        </li>
+        <li class="channels__item">
+          <button class="channels__button"><span>Company Annual Trip</span></button>
+        </li>
+        <li class="channels__item">
+          <button class="channels__button"><span>Bonding Camp</span></button>
+        </li>
+        <li class="channels__item">
+          <button class="channels__button"><span>Annual Dinner</span></button>
+        </li>
+      </ul>
+      <button class="teams__button">
+            Calendar
+          </button>
+    </div>
+
+
+    
+  </div>
+  <div class='app-layout'>
+  <div class='header box'>TITLE</div>
     <div class='messages box'>
       <ul class='message-list'>
-        <li>sdfsd</li>
-        <li>sdfsadfa</li>
-        <li>sdfsdfsda</li>
-        <li>sdfsadfsad</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
         <li></li>
         <li></li>
         <li></li>
@@ -65,7 +92,8 @@
     <div class='input box'>
       <input type='text' placeholder='Write a comment...'>
     </div>
-  </div>
+</div>
+</div>
         
     </body>
 
