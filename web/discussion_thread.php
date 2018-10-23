@@ -12,7 +12,7 @@
   <nav class="teams">
     <ul class="teams__list">
       <li class="teams__item">
-        <button class="teams__button teams__button--active">
+        <button class="teams__button ">
           HR
         </button>
       </li>
@@ -63,11 +63,15 @@
         <li class="channels__item">
           <button class="channels__button"><span>Annual Dinner</span></button>
         </li>
-        <li><form action="calendar.php">
-      <button class="team-menu__name" style ="padding-left: 15px ;padding-top: 10px">
-            Company Event Calendar
+        <li>
+        <button class="team-menu" ><h1 class="team-menu__name">Start A New Topic</h1>
           </button>
-          </form> 
+          </li>
+          <li>
+        <form action="calendar.php">
+      <button class="team-menu"><h1 class="team-menu__name">Company Event Calendar</h1>
+          </button>
+          </form>
           </li> 
       </ul>
       
@@ -90,10 +94,6 @@
         <li><p id="thread8"></p></li>
         <li><p id="thread9"></p></li>
         <li><p id="thread10"></p></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
       </ul>
     </div>
     <div class='input box'>
