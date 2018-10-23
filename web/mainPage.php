@@ -18,7 +18,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <img class="logo" src="logo.png" alt="ccplogo" width="40" height="30">
         
-        <a class="navbar-brand" href="#">Company Collaboration Platform</a>
+        <a class="navbar-brand" href="mainPage.php">Company Collaboration Platform</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

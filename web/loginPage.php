@@ -7,14 +7,14 @@
   <link rel="stylesheet" type="text/css" href="design.css">
   <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
 </head>
 <body style="background-image: url('collab.jpg')">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <img class="logo" src="logo.png" alt="ccplogo" width="40" height="30">
-        <a class="navbar-brand" href="#">Company Collaborative Platform</a>
+        <a class="navbar-brand" href="mainPage.php">Company Collaborative Platform</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
