@@ -4,6 +4,11 @@
      <script src="js.js"></script>
      <link rel ="stylesheet" href = "threadDesign.css" type = "text/css">
 
+      <style>ul.channels_lists{list-style-type: none;}</style>
+
+
+
+
             <body>
         <div class="slack">
   <nav class="teams">
