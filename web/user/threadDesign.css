@@ -509,7 +509,8 @@ input {
   padding: .2em;
   margin-top: 1em;
   margin-bottom: 1em;
-  background-color: #727272;
+  background-color: #555459;
+  opacity: 0.75;
 }
 
 /* Our Grid Code */
@@ -526,8 +527,9 @@ input {
 .header {
   grid-column: 3;
   grid-row: 1;
-  color: #333;
-  border-bottom: 1px solid #f2f2f2;
+  color: rgb(255, 255, 255);
+  font-size: 150%;
+  border-bottom : 2px solid #ffffff;
 }
 
 .messages {
