@@ -22,13 +22,22 @@
         function addtopic(){
           var topic = prompt("Please enter your topic title");
           if (topic != null) {
-          document.getElementById("topictitle").innerHTML = topic
+          document.getElementById("span3").innerHTML = topic
           document.getElementById("title").innerHTML = topic
           document.getElementById("thread1").innerHTML ="";
           document.getElementById("thread2").innerHTML ="";
           document.getElementById("thread3").innerHTML ="";
           document.getElementById("thread4").innerHTML ="";
     }
+    document.getElementById("li1").style.visibility = "visible";
+        document.getElementById("ch_no.").innerHTML ="(3)";
+
+      
+
+
+
+
+
         }
      
      
@@ -60,10 +69,6 @@
         var sp4 = document.getElementById("span2");
         var parentDiv = sp4.parentNode;
         parentDiv.replaceChild(sp3, sp4);
-
-
-
-
 }
      
      function loadMG(){
@@ -93,12 +98,52 @@
       
     }
 
-     
+     <style>
+     .navbar-nav > li > a, .navbar-brand {
+    padding-top:5px !important; padding-bottom:0 !important;
+    height: 10px;
+}
+.navbar {min-height:10px !important;}
+     </style>
+
+
+
+
      </script>   
-     
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel ="stylesheet" href = "threadDesign.css" type = "text/css">
+     <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
 
             <body>
+
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+    <img class="logo" src="xwxexbxexnxg/web/logo.png" alt="ccplogo" width="40" height="30">
+        <a class="navbar-brand" href="http://localhost/xwxexbxexnxg/web/mainPage.php">Company Collaboration Platform</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/mainPage.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/aboutus.php">About Us</a>
+            </li>
+            </ul>         
+            
+        </div>
+    </nav>
+
+
+
+
         <div class="slack">
   <nav class="teams">
     <ul class="teams__list">
@@ -144,7 +189,7 @@
           <button onclick="comment2()" class="channels__button"><span id = "span2">Low Salary</span></button>
         </li>
         <li class="channels__item" id="li1">
-          <button class="channels__button"><span id ="span" >Company Annual Trip</span></button>
+          <button class="channels__button"><span id ="span3" >Company Annual Trip</span></button>
         </li>
         <li class="channels__item" id="li2">
           <button class="channels__button"><span  id ="span">Bonding Camp</span></button>
@@ -152,15 +197,12 @@
         <li class="channels__item" id="li3">
           <button class="channels__button"><span id ="span" >Annual Dinner</span></button>
         </li>
-        <li class="channels__item" id="li4">
-        <button class="channels__button" id="topictitle"><span id ="span" ></span></button>
-        </li>
         <li>
         <button onclick="addtopic()" class="team-menu" ><h1 class="team-menu__name">Start A New Topic</h1>
           </button>
           </li>
           <li>
-        <form action="admin/calendar.php">
+        <form action="calendar.php">
       <button class="team-menu"><h1 class="team-menu__name">Company Event Calendar</h1>
           </button>
           </form>
