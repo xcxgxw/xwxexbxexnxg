@@ -10,14 +10,14 @@
 }
 
 :root {
-  --column-bg: #ae0001;
-  --menu-bg-hover: #680001;
+  --column-bg: #505050;
+  --menu-bg-hover: #686868;
   --active-item: #D3A625;
-  --active-item-text: #680001;
-  --hover-item: #BE0002;
-  --text-color: #FFFFFF;
-  --active-presence: #00FFBA;
-  --mention-badge: #DE4C0D;
+  --active-item-text: #b1b1b1;
+  --hover-item: rgb(128, 128, 128);
+  --text-color: rgb(235, 235, 235);
+  --active-presence: rgb(0, 255, 42);
+  --mention-badge: rgb(144, 194, 144);
 }
 
 * {
