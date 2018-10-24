@@ -1,7 +1,6 @@
 body {
-    width: 50%;
-    margin: 100px auto;
-    background-color: lightgray;
+    margin:50px 100px 100px 250px ;
+    background-color:  #424949;
     font-family: 'Kanit', sans-serif;
   }
   
@@ -49,21 +48,21 @@ body {
     top: 36px;
   }
   .triangle-left:hover{
-    border-right: 10px solid#2ECC71;
+    border-right: 10px solid rgb(67, 68, 68);
   }
   .triangle-right:hover{
-    border-left: 10px solid#2ECC71;
+    border-left: 10px solid rgb(67, 68, 68);
   }
   
   .month-color {
-    color: #27AE60;
+    color: #424949;
   }
   .month-hover:hover{
     color:#27e879 !important;
   }
   
   .months {
-    color: #AAAAAA;
+    color:    #AAAAAA   ;
     position: relative;
     left: 350px;
     top: 90px;
@@ -130,7 +129,7 @@ body {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: #2ECC71;
+    background-color: rgb(67, 68, 68);
     position: relative;
     top: 273px;
     left: 664px;
@@ -144,7 +143,7 @@ body {
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background-color: #2980B9;
+    background-color: rgb(65, 66, 66);
     position: relative;
     top: 304px;
     left: 695px;
@@ -164,11 +163,11 @@ body {
     width: 300px;
     height: 500px;
     border-radius: 20px 0px 0px 20px;
-    background-color: #2ECC71;
+    background-color:  #566573 ;
     position: relative;
     z-index: -1;
     bottom: 500px;
-    color: white;
+    color:white;
   }
   
   .hamburger {

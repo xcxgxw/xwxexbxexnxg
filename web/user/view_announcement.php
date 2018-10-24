@@ -1,8 +1,9 @@
 <?php include "include/header.php"?>
+<?php include "include/footer.php"?>
+<?php include "include/navigation.php"?>
 
 <div id="wrapper">
 
-<?php include "include/navigation.php"?>
 
 
 
