@@ -98,48 +98,13 @@
       
     }
 
-     <style>
-     .navbar-nav > li > a, .navbar-brand {
-    padding-top:5px !important; padding-bottom:0 !important;
-    height: 10px;
-}
-.navbar {min-height:10px !important;}
-     </style>
-
-
-
-
      </script>   
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel ="stylesheet" href = "threadDesign.css" type = "text/css">
-     <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
 
             <body>
 
-
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
-    <img class="logo" src="xwxexbxexnxg/web/logo.png" alt="ccplogo" width="40" height="30">
-        <a class="navbar-brand" href="http://localhost/xwxexbxexnxg/web/mainPage.php">Company Collaboration Platform</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/mainPage.php">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost/xwxexbxexnxg/web/aboutus.php">About Us</a>
-            </li>
-            </ul>         
-            
-        </div>
-    </nav>
 
 
 
