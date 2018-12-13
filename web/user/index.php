@@ -18,7 +18,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Welcome to Company Collaboration Platform!
-                            <small>malone</small>
+                            <small>Ivory</small>
                         </h1>
           
                     </div>

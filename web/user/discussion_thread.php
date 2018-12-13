@@ -1,5 +1,37 @@
 <!DOCTYPE HTML>
         <html>
+        
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyARKMgF5Ik_20WkcChSNYrKh_Sxt17CG00",
+    authDomain: "webengrg.firebaseapp.com",
+    databaseURL: "https://webengrg.firebaseio.com",
+    projectId: "webengrg",
+    storageBucket: "webengrg.appspot.com",
+    messagingSenderId: "708972282948"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script>
+
+var database = firebase.database();
+
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref().set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
+writeUserData("o0o","123","123","123");
+</script>
+
+
 
 
      <script>
@@ -132,7 +164,7 @@
       <div class="team-menu__info">
         <h1 class="team-menu__name "id ="dept_name" >Human Resource Department</h1>
         <div class="team-menu__status">
-          <span class="team-menu__username">burgerhong</span>
+          <span class="team-menu__username">Ivory</span>
         </div>
       </div>
       <span class="team-menu__alarm ion-ios-bell-outline"></span>

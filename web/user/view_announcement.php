@@ -31,7 +31,7 @@
           <tbody>
           <tr>
               <td>Malone No Party</td>
-              <td>23 october 2018</td>
+              <td>31 october 2018</td>
               <td>Play dota or sleep</td>
           </tr>
       </tbody>
