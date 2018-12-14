@@ -4,6 +4,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -17,19 +18,19 @@
   firebase.initializeApp(config);
 </script>
 
-<script>
+<!-- <script>
 
 var database = firebase.database();
 
 function writeUserData(userId, name, email, imageUrl) {
-  firebase.database().ref().set({
+  firebase.database().ref().child('user').set({
     username: name,
     email: email,
     profile_picture : imageUrl
   });
 }
-writeUserData("o0o","Ghee Wei","gw@gmail.com","123");
-</script>
+writeUserData("Ghee Wei","gw@gmail.com","123");
+</script> -->
 
 <script>
   function comment1(){
@@ -204,12 +205,14 @@ writeUserData("o0o","Ghee Wei","gw@gmail.com","123");
       <button type="submit" id="submit" value="submit" style="background:white;height:44px;">Submit</button>
       <script>
       function writeUserData() {
-      var currentTime = new Date();
-      var message = document.getElementById("inputMessage").value;
-      var database = firebase.database();
-      firebase.database().ref().set({
+        // var userId = firebase.auth().currentUser.uid;
+        var currentTime = new Date().toLocaleString();
+        var message = document.getElementById("inputMessage").value;
+  
+        firebase.database().ref().child('forum').push({
+          uid: userId,
           message: message,
-          data: currentTime
+          postedTime: currentTime,
         });
       }
       document.getElementById("submit").addEventListener("click",writeUserData);
