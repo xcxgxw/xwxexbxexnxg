@@ -29,13 +29,34 @@
                 </button>
                 <a class="navbar-brand" href="index.php">Company Collaboration Platform</a>
             </div>
+
+            <script>
+                window.onload = function() {
+                    firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                        var userId = user.uid;
+                        console.log(userId);
+
+                        firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+                            var name = (snapshot.val() && snapshot.val().name) || 'Anonymous';
+                            console.log(name);
+                            $("#getUserName").text(name);
+                        });
+                    } else {
+                        // User is not signed in.
+                        alert("Sign In Failed");
+                    }
+                });
+                }
+            </script>
+
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
 
                 <li><a href="index.php">HOME</a></li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Malone <b class="caret"></b></a>
+                    <a id="getUserName" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Malone <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
