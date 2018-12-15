@@ -108,6 +108,7 @@ function dispTopic(depart){
   $(".team-menu__info").empty();
   $(".message-list").empty();
    $("#startTopic").empty();
+   $("#deleteTopic").empty();
   var userDataRef = firebase.database().ref("departmentList").child(depart).orderByKey();
   userDataRef.once("value").then(function(snapshot) {
   // snapshot.forEach(function(childSnapshot) {
@@ -154,7 +155,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
 }
      
   function dispThread(id,depart){
-
+    $("#deleteTopic").empty();
      $(".app-layout").css("visibility", "visible");
 
     $(".topictitle").empty();
@@ -191,12 +192,23 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     message1 = document.createElement("p");
     message1.textContent = message;
     container.append(message1);
-    
     div.append(container);
+
+    
 
     });
   });
-
+  if(permissionLevel == 1){
+      var div = $("#deleteTopic");
+      button = document.createElement("button");
+      button.setAttribute('class','team-menu');
+      button.setAttribute('onclick','deleteTopic("'+depart+'","'+id+'")');
+      item =document.createElement("h1");
+      item.setAttribute('class','team-menu__name');
+      item.textContent = "Delete Topic";
+      button.append(item);
+      div.append(button);
+    }
     $("#submit").attr('onclick','writeUserData("'+depart+'","'+id+'")');
   }
 
@@ -234,8 +246,10 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
       </ul>
 
       <div class="channels" id = "startTopic">       
-              <!-- <button  id="addTopic" class="team-menu" ><h1 class="team-menu__name">Start A New Topic</h1>
-                </button> -->
+             
+              </div>
+              <div class="channels" id = "deleteTopic">       
+            
               </div>
               <div class="channels">                
               <form action="eventcalendar/user_calendar.php">
