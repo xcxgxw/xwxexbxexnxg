@@ -63,30 +63,41 @@ writeUserData("Ghee Wei","gw@gmail.com","123");
 
 <script>
 
+var userName;
 
-function iconn(int_par){
-  
-  var iconn_list = $(".teams__list");
-  var userDataRef = firebase.database().ref("departmentHierarchy").child(int_par).orderByKey();
-  userDataRef.once("value").then(function(snapshot) {
-  snapshot.forEach(function(childSnapshot) {
-    var key = childSnapshot.key;
+function loaddd(){
 
-    var listItem = document.createElement("li");
-    listItem.setAttribute('class','teams_item');
-    var item = document.createElement("button");
-    item.setAttribute('class','teams__button');
-    item.setAttribute('id', key);
-    item.setAttribute('onclick','dispTopic(this.id)');
-    item.textContent = key;
-    listItem.appendChild(item);
-    
-    iconn_list.append(listItem);   
-    
-    });
-  });
+        firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    
+                    var userDataRef = firebase.database().ref("users").child(user.uid).orderByKey();
+                    userDataRef.once("value").then(function(snapshot) {
+                      
+                       var permission = snapshot.val().permission;
+                       userName = snapshot.val().name;
 
+                        var iconn_list = $(".teams__list");
+                        var userDataRef = firebase.database().ref("departmentHierarchy").child(permission).orderByKey();
+                        userDataRef.once("value").then(function(snapshot) {
+                        snapshot.forEach(function(childSnapshot) {
+                          var key = childSnapshot.key;
 
+                          var listItem = document.createElement("li");
+                          listItem.setAttribute('class','teams_item');
+                          var item = document.createElement("button");
+                          item.setAttribute('class','teams__button');
+                          item.setAttribute('id', key);
+                          item.setAttribute('onclick','dispTopic(this.id)');
+                          item.textContent = key;
+                          listItem.appendChild(item);
+                          iconn_list.append(listItem);   
+                          
+                          });
+                        });
+                      });
+                  }
+                });
+      
 }
 
 function dispTopic(depart){
@@ -159,13 +170,14 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     // var childData = childSnapshot.val();              
     var message = childSnapshot.val().message;
     var time = childSnapshot.val().postedTime;
+    var name = childSnapshot.val().user;
     console.log(message);
     var div = $("#message_box");
     container = document.createElement("div");
     container.setAttribute('class','container');
     name_span = document.createElement("span");
     name_span.setAttribute('class','name-left');
-    name_span.textContent ="Eric";
+    name_span.textContent = name;
     container.append(name_span);
     time_span = document.createElement("span");
     time_span.setAttribute('class','time-right');
@@ -190,7 +202,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel ="stylesheet" href = "threadDesign.css" type = "text/css">
 
-<body background ="https://i.imgur.com/QVFUaZP.jpg?1" onload = "iconn(3)">
+<body background ="https://i.imgur.com/QVFUaZP.jpg?1" onload = "loaddd()">
 <div class="slack">
   <nav class="teams">
     <ul class="teams__list">
