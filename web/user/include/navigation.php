@@ -1,4 +1,23 @@
        <!-- Navigation -->
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyARKMgF5Ik_20WkcChSNYrKh_Sxt17CG00",
+            authDomain: "webengrg.firebaseapp.com",
+            databaseURL: "https://webengrg.firebaseio.com",
+            projectId: "webengrg",
+            storageBucket: "webengrg.appspot.com",
+            messagingSenderId: "708972282948"
+        };
+        firebase.initializeApp(config);
+        </script>
+       
        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -23,11 +42,19 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="../loginPage.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <!-- <a href="../loginPage.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a> -->
+                            <button class="fa fa-fw fa-power-off" onclick="logout();">Log Out</button>
                         </li>
                     </ul>
                 </li>
             </ul>
+
+            <script>
+                function logout(){
+                    firebase.auth().signOut();
+                    window.location = "../loginPage.html";
+                }
+            </script>
 
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">

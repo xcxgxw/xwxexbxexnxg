@@ -2,6 +2,25 @@
 <html lang="en">
 
 <head>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyARKMgF5Ik_20WkcChSNYrKh_Sxt17CG00",
+        authDomain: "webengrg.firebaseapp.com",
+        databaseURL: "https://webengrg.firebaseio.com",
+        projectId: "webengrg",
+        storageBucket: "webengrg.appspot.com",
+        messagingSenderId: "708972282948"
+      };
+      firebase.initializeApp(config);
+    </script>
+
   <meta charset="utf-8">
   <title>eBusiness Bootstrap Template</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -126,7 +145,7 @@
                       </div>
                       <div class="col-lg-12 col-md-12 col-sm-12 comment-form-comment">
                         <p>Password *</p>
-                        <input type="email" id="exampleInputPassword1"  />
+                        <input type="password" id="exampleInputPassword1"  />
                       </div>
                           <button type="button" class="btn btn-dark col-md-4" onclick="login();">LOGIN</button>
                     </div>
@@ -165,8 +184,33 @@
   <script src="js/main.js"></script>
 
   <script>
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+          // User is signed in.
+          //var current_user = firebase.auth().currentUser;
+          window.location = "user";
+          
+      } else {
+          // User is not signed in.
+          console.log("Sign In Failed");
+      }
+  });
+
     function login(){
-      window.location="user";
+      var username = document.getElementById("exampleInputEmail1").value;
+      var password = document.getElementById("exampleInputPassword1").value;
+      firebase.auth().signInWithEmailAndPassword(username, password)
+        .catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            if (errorCode === 'auth/wrong-password') {
+                alert('Wrong password.');
+            } else {
+                alert(errorMessage);
+            }
+            console.log(error);
+        });
     }
   </script>
 </body>

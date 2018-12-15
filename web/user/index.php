@@ -30,5 +30,19 @@
 
         </div>
         <!-- /#page-wrapper -->
+
+        <script>
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    // User is signed in.
+                    //var current_user = firebase.auth().currentUser;
+                    console.log(user.uid);
+                    
+                } else {
+                    // User is not signed in.
+                    console.log("Sign In Failed");
+                }
+            });
+        </script>
 </body>
 
