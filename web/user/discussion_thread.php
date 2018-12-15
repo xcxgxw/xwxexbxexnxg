@@ -5,6 +5,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>
   // Initialize Firebase
@@ -95,7 +96,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     item.setAttribute('onclick','dispThread(this.id,"'+depart.toString()+'")');
     item.textContent = topic;
     listItem.appendChild(item);
-    topic_list.append(listItem);  
+    topic_list.append(listItem);
     });
   });
 
@@ -194,6 +195,20 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
   <div class='app-layout' style = "visibility:hidden;">
   <div class='header box'><p class ="sohai"></p></div>
     <div class='messages box'>
+      <!-- <ul class='message-list'>
+        <li><p id="thread1"></p> </li>
+        <li><p id="thread2"></p></li>
+        <li><p id="thread3"></p></li>
+        <li><p id="thread4"></p></li>
+        <li><p id="thread5"></p></li>
+        <li><p id="thread6"></p></li>
+        <li><p id="thread7"></p></li>
+        <li><p id="thread8"></p></li>
+        <li><p id="thread9"></p></li>
+        <li><p id="thread10"></p></li>
+      </ul> -->
+<div id="thread">
+</div>
       <ul class='message-list'>
       </ul>
     </div>
@@ -234,6 +249,24 @@ function addTopic(depart) {
 
 
 
+</div>
+
+<!-- <script>
+  var departmentId = "PAN";
+var btnId = "topic_A";
+  var database = firebase.database();
+  database.ref().child('departmentList').child(departmentId).child('topicList').child(btnId).child('thread').on('value', function(snapshot){
+  if(snapshot.exists()){
+  var content = '';
+  snapshot.forEach(function(data){
+                    var val = data.val();
+                    console.log(val.message);
+                    content += '<p>' + val.message + '</p>';
+                });
+                $('#thread').html(content);
+            }
+        });
+</script> -->
     </body>
      
     </html>
