@@ -19,7 +19,34 @@
   };
   firebase.initializeApp(config);
 </script>
-
+<style>
+  .container {
+    border: 2px solid #dedede;
+    background-color: rgb(131, 130, 133);
+    border-radius: 5px;
+    padding: 1px;
+    margin: 10px ;
+  }
+  
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .time-right {
+    float: right;
+    color: rgb(192, 189, 189);
+    font-style: italic;
+    font-size: 15px;
+  }
+  
+  .name-left {
+    float: left;
+    color: rgb(10, 10, 10);
+    font-size: 15px;
+  }
+  </style>
 <!-- <script>
 
 var database = firebase.database();
@@ -64,7 +91,7 @@ function iconn(int_par){
 
 function dispTopic(depart){
   $(".app-layout").css("visibility", "hidden");
-  $(".sohai").empty();
+  $(".topictitle").empty();
   $(".team-menu__info").empty();
   $(".message-list").empty();
    $("#startTopic").empty();
@@ -100,7 +127,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     });
   });
 
-    var div = $("#startTopic");
+    var div = $("#startTopic").attr('onclick','addTopic("'+depart+'")');
     button = document.createElement("button");
     button.setAttribute('class','team-menu');
     button.setAttribute('onclick','addTopic("'+depart+'")');
@@ -116,33 +143,46 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
 
      $(".app-layout").css("visibility", "visible");
 
-    $(".sohai").empty();
-    var div = $(".sohai");
+    $(".topictitle").empty();
+    var div = $(".topictitle");
    para = document.createElement("p");
    para.textContent = id;
    div.append(para);
 
-    $(".message-list").empty();
-    var message_list = $(".message-list");
+    $("#message_box").empty();
+    var message_list = $("#message_box");
     var userDataRef = firebase.database().ref("departmentList").child(depart).child("topicList").child(id).child("thread");
     userDataRef.on("value",function(snapshot) {
-      $(".message-list").empty();
+      $("#message_box").empty();
   snapshot.forEach(function(childSnapshot) {
     // var key = childSnapshot.key;
     // var childData = childSnapshot.val();              
     var message = childSnapshot.val().message;
     var time = childSnapshot.val().postedTime;
-    var listItem = document.createElement("li");
-    listItem.textContent = message;
-    message_list.append(listItem);
+    console.log(message);
+    var div = $("#message_box");
+    container = document.createElement("div");
+    container.setAttribute('class','container');
+    name_span = document.createElement("span");
+    name_span.setAttribute('class','name-left');
+    name_span.textContent ="Eric";
+    container.append(name_span);
+    time_span = document.createElement("span");
+    time_span.setAttribute('class','time-right');
+    time_span.textContent = time;
+    container.append(time_span);
+    br = document.createElement("br");
+    container.append(br);
+    message1 = document.createElement("p");
+    message1.textContent = message;
+    container.append(message1);
+    
+    div.append(container);
+
     });
   });
 
- $("#submit").click(function(){
-        writeUserData(depart,id);
-});
-
-
+    $("#submit").attr('onclick','writeUserData("'+depart+'","'+id+'")');
   }
 
 </script>   
@@ -193,25 +233,10 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
   </div>
   
   <div class='app-layout' style = "visibility:hidden;">
-  <div class='header box'><p class ="sohai"></p></div>
-    <div class='messages box'>
-      <!-- <ul class='message-list'>
-        <li><p id="thread1"></p> </li>
-        <li><p id="thread2"></p></li>
-        <li><p id="thread3"></p></li>
-        <li><p id="thread4"></p></li>
-        <li><p id="thread5"></p></li>
-        <li><p id="thread6"></p></li>
-        <li><p id="thread7"></p></li>
-        <li><p id="thread8"></p></li>
-        <li><p id="thread9"></p></li>
-        <li><p id="thread10"></p></li>
-      </ul> -->
-<div id="thread">
-</div>
-      <ul class='message-list'>
-      </ul>
+  <div class='header box'><span class ="topictitle"></span></div>
+    <div class='messages box' id="message_box">
     </div>
+    
     <div class='input box'>
       <input type='text' id="inputMessage" placeholder='Write a comment...' style="width:90%;">
       <button type="submit" id="submit" value="submit" style="background:white;height:44px;">Submit</button>
