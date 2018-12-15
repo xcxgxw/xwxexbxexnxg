@@ -34,24 +34,7 @@ writeUserData("Ghee Wei","gw@gmail.com","123");
 </script> -->
 
 <script>
-  
-function disp(){  
 
-  var message_list = $(".message-list");
-  var userDataRef = firebase.database().ref("forum").orderByKey();
-  userDataRef.once("value").then(function(snapshot) {
-  snapshot.forEach(function(childSnapshot) {
-    // var key = childSnapshot.key;
-    // var childData = childSnapshot.val();              
-    var message = childSnapshot.val().message;
-    var time = childSnapshot.val().postedTime;
-    var listItem = document.createElement("li");
-    listItem.textContent = message;
-    message_list.append(listItem);
-    console.log(message_list);
-    });
-  });
-}
 
 function iconn(int_par){
   
@@ -66,7 +49,7 @@ function iconn(int_par){
     var item = document.createElement("button");
     item.setAttribute('class','teams__button');
     item.setAttribute('id', key);
-    item.setAttribute('onclick','getTextValue(this.id)');
+    item.setAttribute('onclick','dispTopic(this.id)');
     item.textContent = key;
     listItem.appendChild(item);
     
@@ -75,19 +58,16 @@ function iconn(int_par){
     });
   });
 
-}
-
-function getTextValue(objButton){
-
-  var text = objButton;
-  dispTopic(text);
 
 }
 
-function dispTopic(button_key){
-
+function dispTopic(depart){
+  $(".app-layout").css("visibility", "hidden");
+  $(".sohai").empty();
   $(".team-menu__info").empty();
-  var userDataRef = firebase.database().ref("departmentList").child(button_key).orderByKey();
+  $(".message-list").empty();
+   $("#startTopic").empty();
+  var userDataRef = firebase.database().ref("departmentList").child(depart).orderByKey();
   userDataRef.once("value").then(function(snapshot) {
   // snapshot.forEach(function(childSnapshot) {
     var departName = snapshot.val().name;
@@ -100,11 +80,11 @@ function dispTopic(button_key){
     // });
   });
   
-  
   var topic_list = $(".channels__list");
   $(".channels__list").empty();
-var userDataRef = firebase.database().ref("departmentList").child(button_key).child("topicList").orderByKey();
-  userDataRef.once("value").then(function(snapshot) {
+var userDataRef = firebase.database().ref("departmentList").child(depart).child("topicList").orderByKey();
+  userDataRef.on("value",function(snapshot) {
+    $(".channels__list").empty();
   snapshot.forEach(function(childSnapshot) {
     var topic = childSnapshot.key;
     listItem = document.createElement("li");
@@ -112,15 +92,58 @@ var userDataRef = firebase.database().ref("departmentList").child(button_key).ch
     var item = document.createElement("button");
     item.setAttribute('class','channels__button');
     item.setAttribute('id', topic);
-    item.setAttribute('onclick','getDepartmentValue(this.id)');
+    item.setAttribute('onclick','dispThread(this.id,"'+depart.toString()+'")');
     item.textContent = topic;
     listItem.appendChild(item);
     topic_list.append(listItem);  
     });
   });
 
+    var div = $("#startTopic");
+    button = document.createElement("button");
+    button.setAttribute('class','team-menu');
+    button.setAttribute('onclick','addTopic("'+depart+'")');
+    item =document.createElement("h1");
+    item.setAttribute('class','team-menu__name');
+    item.textContent = "Start A New Topic";
+    button.append(item);
+    div.append(button);
+
 }
      
+  function dispThread(id,depart){
+
+     $(".app-layout").css("visibility", "visible");
+
+    $(".sohai").empty();
+    var div = $(".sohai");
+   para = document.createElement("p");
+   para.textContent = id;
+   div.append(para);
+
+    $(".message-list").empty();
+    var message_list = $(".message-list");
+    var userDataRef = firebase.database().ref("departmentList").child(depart).child("topicList").child(id).child("thread");
+    userDataRef.on("value",function(snapshot) {
+      $(".message-list").empty();
+  snapshot.forEach(function(childSnapshot) {
+    // var key = childSnapshot.key;
+    // var childData = childSnapshot.val();              
+    var message = childSnapshot.val().message;
+    var time = childSnapshot.val().postedTime;
+    var listItem = document.createElement("li");
+    listItem.textContent = message;
+    message_list.append(listItem);
+    });
+  });
+
+ $("#submit").click(function(){
+        writeUserData(depart,id);
+});
+
+
+  }
+
 </script>   
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -154,9 +177,11 @@ var userDataRef = firebase.database().ref("departmentList").child(button_key).ch
       <ul class="channels__list">
       </ul>
 
-      <div class="channels">       
-              <button onclick="onload()" class="team-menu" ><h1 class="team-menu__name">Start A New Topic</h1>
-                </button>              
+      <div class="channels" id = "startTopic">       
+              <!-- <button  id="addTopic" class="team-menu" ><h1 class="team-menu__name">Start A New Topic</h1>
+                </button> -->
+              </div>
+              <div class="channels">                
               <form action="calendar.php">
             <button class="team-menu"><h1 class="team-menu__name">Company Event Calendar</h1>
                 </button>
@@ -164,11 +189,10 @@ var userDataRef = firebase.database().ref("departmentList").child(button_key).ch
       </div>
     </div>
 
-
-    
   </div>
-  <div class='app-layout'>
-  <div class='header box'><p id="title"></p></div>
+  
+  <div class='app-layout' style = "visibility:hidden;">
+  <div class='header box'><p class ="sohai"></p></div>
     <div class='messages box'>
       <ul class='message-list'>
       </ul>
@@ -176,33 +200,40 @@ var userDataRef = firebase.database().ref("departmentList").child(button_key).ch
     <div class='input box'>
       <input type='text' id="inputMessage" placeholder='Write a comment...' style="width:90%;">
       <button type="submit" id="submit" value="submit" style="background:white;height:44px;">Submit</button>
-      <script>
-      function writeUserData() {
-        // var userId = firebase.auth().currentUser.uid;
-        var currentTime = new Date().toLocaleString();
-        var message = document.getElementById("inputMessage").value;
-  
-        firebase.database().ref().child('forum').push({
-          message: message,
-          postedTime: currentTime,
-        });
-      }
-      
-      $("#submit").click(function(){
-        $(".message-list").empty();
-        writeUserData();
-        disp();
-});
-
-      // $(".teams__button").click(function(){
-      //         var text = $(".teams_button").textContent;
-      //         console.log("123");
-      // });
-      </script>
+ 
     </div>
+  </div>
+
 </div>
-</div>
-        
+<script>
+  function writeUserData(depart,topic) {
+    // var userId = firebase.auth().currentUser.uid;
+    var currentTime = new Date().toLocaleString();
+    var message = document.getElementById("inputMessage").value;
+
+    firebase.database().ref().child('departmentList').child(depart).child("topicList").child(topic).child("thread").push({
+      message: message,
+      postedTime: currentTime,
+    });
+  }
+  </script>
+
+<script>
+function addTopic(depart) {
+  var title = prompt("Please enter your topic tite:", "topic_title");
+  if (title != null || title != "") {
+    firebase.database().ref().child('departmentList').child(depart).child("topicList").child(title).set({
+      topicName: title,
+    });
+  }
+}
+</script>
+
+
+
+
+
+
     </body>
      
     </html>
