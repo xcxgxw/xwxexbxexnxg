@@ -5,6 +5,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -187,7 +188,7 @@ writeUserData("Ghee Wei","gw@gmail.com","123");
   <div class='app-layout'>
   <div class='header box'><p id="title"></p></div>
     <div class='messages box'>
-      <ul class='message-list'>
+      <!-- <ul class='message-list'>
         <li><p id="thread1"></p> </li>
         <li><p id="thread2"></p></li>
         <li><p id="thread3"></p></li>
@@ -198,7 +199,9 @@ writeUserData("Ghee Wei","gw@gmail.com","123");
         <li><p id="thread8"></p></li>
         <li><p id="thread9"></p></li>
         <li><p id="thread10"></p></li>
-      </ul>
+      </ul> -->
+<div id="thread">
+</div>
     </div>
     <div class='input box'>
       <input type='text' id="inputMessage" placeholder='Write a comment...' style="width:90%;">
@@ -210,7 +213,6 @@ writeUserData("Ghee Wei","gw@gmail.com","123");
         var message = document.getElementById("inputMessage").value;
   
         firebase.database().ref().child('forum').push({
-          uid: userId,
           message: message,
           postedTime: currentTime,
         });
@@ -220,7 +222,20 @@ writeUserData("Ghee Wei","gw@gmail.com","123");
     </div>
 </div>
 </div>
-        
+<script>
+  var database = firebase.database();
+  database.ref().child('departmentList').child('PAN').child('topicList').child('topic_A').child('thread').on('value', function(snapshot){
+  if(snapshot.exists()){
+  var content = '';
+  snapshot.forEach(function(data){
+                    var val = data.val();
+                    console.log(val.message);
+                    content += '<p>' + val.message + '</p>';
+                });
+                $('#thread').html(content);
+            }
+        });
+</script>
     </body>
      
     </html>
