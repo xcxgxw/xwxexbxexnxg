@@ -41,6 +41,7 @@
                     permissionLevel = snapshot.val().permission;
                     if(permissionLevel != 1){
                         document.getElementById("postAnnouncement").style.display = "none";
+                        document.getElementById("calendar").style.display = "none";
                     }
             });     
                 } else {

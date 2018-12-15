@@ -100,7 +100,7 @@
                         <a href="discussion_thread.php"><i class="fa fa-fw fa-edit"></i> Discussion</a>
                     </li>
                     <li>
-                        <a href="eventcalendar/index.php"><i class="fa fa-fw fa-edit"></i> Event Calender</a>
+                        <a id="calendar" href="eventcalendar/index.php"><i class="fa fa-fw fa-edit"></i> Event Calender</a>
                     </li>
  
                 </ul>
