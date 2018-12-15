@@ -266,6 +266,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     firebase.database().ref().child('departmentList').child(depart).child("topicList").child(topic).child("thread").push({
       message: message,
       postedTime: currentTime,
+      user: userName;
     });
   }
   </script>
