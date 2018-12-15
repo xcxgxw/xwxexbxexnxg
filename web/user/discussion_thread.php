@@ -235,7 +235,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
                 </button> -->
               </div>
               <div class="channels">                
-              <form action="calendar.php">
+              <form action="eventcalendar/user_calendar.php">
             <button class="team-menu"><h1 class="team-menu__name">Company Event Calendar</h1>
                 </button>
                 </form>
