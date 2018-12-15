@@ -93,7 +93,7 @@
 
     firebase.database().ref().child("announcement").push({
       title: title,
-      userName: userName,
+      name: userName,
       content: content,
       postedTime: currentTime
     });
