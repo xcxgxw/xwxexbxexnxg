@@ -52,7 +52,7 @@
                         <a href="discussion_thread.php"><i class="fa fa-fw fa-edit"></i> Discussion</a>
                     </li>
                     <li>
-                        <a href="calendar.php"><i class="fa fa-fw fa-edit"></i> Calender</a>
+                        <a href="eventcalendar/index.php"><i class="fa fa-fw fa-edit"></i> Event Calender</a>
                     </li>
  
                 </ul>
