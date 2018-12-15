@@ -11,6 +11,7 @@
 
 $(document).ready(function () {
     var calendar = $('#calendar').fullCalendar({
+        weekNumbers:true,
         editable: true,
         events: "fetch-event.php",
         displayEventTime: false,
@@ -40,6 +41,7 @@ $(document).ready(function () {
                     // },
                     type: "POST",
                     success: function (data) {
+                        window.location.reload(true);
                         displayMessage("Added Successfully");
                     }
                 });
@@ -57,13 +59,13 @@ $(document).ready(function () {
         },
         
         editable: true,
-        eventDrop: function (event, delta) {
+        eventDrop: function (event,delta) {
                     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-                    var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+                    var end = $.fullCalendar.formatDate(event.end , "Y-MM-DD HH:mm:ss");
+                    alert(event.title + " was dropped on " + event.start.format());
                     $.ajax({
                         url: 'edit-event.php',
-                        data: 'title=' + event.title + '&start=' + event.start + '&end=' + event.end + '&id=' + event.id,
-
+                        data: 'title=' + event.title + '&start=' + event.start.format() + '&end=' + event.end.format()+ '&id=' + event.id,                      
                         type: "POST",
                         success: function (response) {
                             displayMessage("Updated Successfully");
@@ -101,6 +103,7 @@ function displayMessage(message) {
 
 <style>
 body {
+    background-color:white;
     margin-top: 50px;
     text-align: center;
     font-size: 12px;
@@ -108,11 +111,13 @@ body {
 }
 
 #calendar {
-    width: 700px;
+    background-color: Gray;
+    width: 800px;
     margin: 0 auto;
 }
 
 .response {
+    font:#566573;
     height: 60px;
 }
 
@@ -125,7 +130,7 @@ body {
 </style>
 </head>
 <body>
-    <h2>CCP Event Management FullCalendar</h2>
+    <h1>CCP Event Management FullCalendar</h1>
 
     <div class="response"></div>
     <div id='calendar'></div>
