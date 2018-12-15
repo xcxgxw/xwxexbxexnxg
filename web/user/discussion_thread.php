@@ -64,12 +64,14 @@ writeUserData("Ghee Wei","gw@gmail.com","123");
 <script>
 
 var userName;
-
+var permissionLevel;
 function loaddd(){
 
         firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
-                    
+                  firebase.database().ref('/users/'+user.uid).once('value').then(function(snapshot){
+                    permissionLevel = snapshot.val().permission;
+                  }); 
                     var userDataRef = firebase.database().ref("users").child(user.uid).orderByKey();
                     userDataRef.once("value").then(function(snapshot) {
                       
@@ -106,6 +108,7 @@ function dispTopic(depart){
   $(".team-menu__info").empty();
   $(".message-list").empty();
    $("#startTopic").empty();
+   $("#deleteTopic").empty();
   var userDataRef = firebase.database().ref("departmentList").child(depart).orderByKey();
   userDataRef.once("value").then(function(snapshot) {
   // snapshot.forEach(function(childSnapshot) {
@@ -138,20 +141,21 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     });
   });
 
-    var div = $("#startTopic");
-    button = document.createElement("button");
-    button.setAttribute('class','team-menu');
-    button.setAttribute('onclick','addTopic("'+depart+'")');
-    item =document.createElement("h1");
-    item.setAttribute('class','team-menu__name');
-    item.textContent = "Start A New Topic";
-    button.append(item);
-    div.append(button);
-
+    if(permissionLevel == 1){
+      var div = $("#startTopic");
+      button = document.createElement("button");
+      button.setAttribute('class','team-menu');
+      button.setAttribute('onclick','addTopic("'+depart+'")');
+      item =document.createElement("h1");
+      item.setAttribute('class','team-menu__name');
+      item.textContent = "Start A New Topic";
+      button.append(item);
+      div.append(button);
+    }
 }
      
   function dispThread(id,depart){
-
+    $("#deleteTopic").empty();
      $(".app-layout").css("visibility", "visible");
 
     $(".topictitle").empty();
@@ -188,12 +192,23 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     message1 = document.createElement("p");
     message1.textContent = message;
     container.append(message1);
-    
     div.append(container);
+
+    
 
     });
   });
-
+  if(permissionLevel == 1){
+      var div = $("#deleteTopic");
+      button = document.createElement("button");
+      button.setAttribute('class','team-menu');
+      button.setAttribute('onclick','deleteTopic("'+depart+'","'+id+'")');
+      item =document.createElement("h1");
+      item.setAttribute('class','team-menu__name');
+      item.textContent = "Delete Topic";
+      button.append(item);
+      div.append(button);
+    }
     $("#submit").attr('onclick','writeUserData("'+depart+'","'+id+'")');
   }
 
@@ -231,11 +246,13 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
       </ul>
 
       <div class="channels" id = "startTopic">       
-              <!-- <button  id="addTopic" class="team-menu" ><h1 class="team-menu__name">Start A New Topic</h1>
-                </button> -->
+             
+              </div>
+              <div class="channels" id = "deleteTopic">       
+            
               </div>
               <div class="channels">                
-              <form action="calendar.php">
+              <form action="eventcalendar/user_calendar.php">
             <button class="team-menu"><h1 class="team-menu__name">Company Event Calendar</h1>
                 </button>
                 </form>
@@ -269,10 +286,9 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
       user: userName,
     });
   }
-  </script>
+  
 
-<script>
-function addTopic(depart) {
+  function addTopic(depart) {
   var title = prompt("Please enter your topic tite:", "topic_title");
   if (title != null || title != "") {
     firebase.database().ref().child('departmentList').child(depart).child("topicList").child(title).set({
@@ -280,11 +296,13 @@ function addTopic(depart) {
     });
   }
 }
-</script>
+
+  function deleteTopic(depart,topic){
+    firebase.database().ref().child('departmentList').child(depart).child("topicList").child(topic).remove();
+  }
 
 
-
-
+  </script>
 
 
 </div>
