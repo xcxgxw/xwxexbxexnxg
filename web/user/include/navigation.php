@@ -17,7 +17,6 @@
         };
         firebase.initializeApp(config);
         </script>
-       
        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -70,7 +69,7 @@
                                 <a href="view_announcement.php">View All Announcements</a>
                             </li>
                             <li>
-                                <a href="post_announcement.php">Post Announcement</a>
+                                <a id="postAnnouncement" href="post_announcement.php">Post Announcement</a>
                             </li>
                         </ul>
                     </li>
