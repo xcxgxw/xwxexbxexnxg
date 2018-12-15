@@ -64,12 +64,14 @@ writeUserData("Ghee Wei","gw@gmail.com","123");
 <script>
 
 var userName;
-
+var permissionLevel;
 function loaddd(){
 
         firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
-                    
+                  firebase.database().ref('/users/'+user.uid).once('value').then(function(snapshot){
+                    permissionLevel = snapshot.val().permission;
+                  }); 
                     var userDataRef = firebase.database().ref("users").child(user.uid).orderByKey();
                     userDataRef.once("value").then(function(snapshot) {
                       
@@ -138,16 +140,17 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     });
   });
 
-    var div = $("#startTopic");
-    button = document.createElement("button");
-    button.setAttribute('class','team-menu');
-    button.setAttribute('onclick','addTopic("'+depart+'")');
-    item =document.createElement("h1");
-    item.setAttribute('class','team-menu__name');
-    item.textContent = "Start A New Topic";
-    button.append(item);
-    div.append(button);
-
+    if(permissionLevel == 1){
+      var div = $("#startTopic");
+      button = document.createElement("button");
+      button.setAttribute('class','team-menu');
+      button.setAttribute('onclick','addTopic("'+depart+'")');
+      item =document.createElement("h1");
+      item.setAttribute('class','team-menu__name');
+      item.textContent = "Start A New Topic";
+      button.append(item);
+      div.append(button);
+    }
 }
      
   function dispThread(id,depart){
