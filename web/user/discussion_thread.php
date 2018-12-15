@@ -272,10 +272,9 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
       user: userName,
     });
   }
-  </script>
+  
 
-<script>
-function addTopic(depart) {
+  function addTopic(depart) {
   var title = prompt("Please enter your topic tite:", "topic_title");
   if (title != null || title != "") {
     firebase.database().ref().child('departmentList').child(depart).child("topicList").child(title).set({
@@ -283,11 +282,13 @@ function addTopic(depart) {
     });
   }
 }
-</script>
+
+  function deleteTopic(depart,topic){
+    firebase.database().ref().child('departmentList').child(depart).child("topicList").child(topic).remove();
+  }
 
 
-
-
+  </script>
 
 
 </div>
