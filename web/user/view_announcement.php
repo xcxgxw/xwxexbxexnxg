@@ -38,12 +38,7 @@
               </tr>
           </thead>
           <tbody id = "announcement">
-          <tr>
-              <td>Malone No Party</td>
-              <td>31 october 2018</td>
-              <td>Play dota or sleep</td>
-              <td>Play dota or sleep</td>
-          </tr>
+
       </tbody>
       </table>
     </div>
