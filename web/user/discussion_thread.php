@@ -138,7 +138,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     });
   });
 
-    var div = $("#startTopic").attr('onclick','addTopic("'+depart+'")');
+    var div = $("#startTopic");
     button = document.createElement("button");
     button.setAttribute('class','team-menu');
     button.setAttribute('onclick','addTopic("'+depart+'")');
@@ -266,7 +266,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     firebase.database().ref().child('departmentList').child(depart).child("topicList").child(topic).child("thread").push({
       message: message,
       postedTime: currentTime,
-      user: userName;
+      user: userName,
     });
   }
   </script>
