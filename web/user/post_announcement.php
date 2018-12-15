@@ -26,7 +26,9 @@
      firebase.auth().onAuthStateChanged(function(user){
         if(user){
            userId = user.uid;
-           console.log(userId);
+           firebase.database().ref('/users/'+userId).once('value').then(function(snapshot){
+            userName = snapshot.val().name;
+            });
         }
      });
   }
@@ -85,11 +87,6 @@
     var currentTime = new Date().toLocaleString();
     var title = document.getElementById("title").value;
     var content = document.getElementById("post_content").value;
-
-   firebase.database().ref('/users/'+userId).once('value').then(function(snapshot){
-      userName = snapshot.val().name;
-      console.log(userName);
-   });
 
     firebase.database().ref().child("announcement").push({
       title: title,

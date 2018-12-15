@@ -37,7 +37,12 @@
                     // User is signed in.
                     //var current_user = firebase.auth().currentUser;
                     console.log(user.uid);
-                    
+                    firebase.database().ref('/users/'+user.uid).once('value').then(function(snapshot){
+                    permissionLevel = snapshot.val().permission;
+                    if(permissionLevel != 1){
+                        document.getElementById("postAnnouncement").style.display = "none";
+                    }
+            });     
                 } else {
                     // User is not signed in.
                     console.log("Sign In Failed");
