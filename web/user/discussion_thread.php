@@ -121,13 +121,6 @@ var userDataRef = firebase.database().ref("departmentList").child(button_key).ch
   });
 
 }
-var boolval = false; 
-function getDepartmentValue(objButton){
-
-var id = objButton;
-boolval = true;
-
-}
 
 </script>   
 <meta charset="utf-8">
@@ -224,6 +217,7 @@ boolval = true;
     </div>
 </div>
 </div>
+
 <script>
   var departmentId = "PAN";
 var btnId = "topic_A";
