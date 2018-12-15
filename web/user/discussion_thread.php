@@ -116,12 +116,19 @@ var userDataRef = firebase.database().ref("departmentList").child(button_key).ch
     item.setAttribute('onclick','getDepartmentValue(this.id)');
     item.textContent = topic;
     listItem.appendChild(item);
-    topic_list.append(listItem);  
+    topic_list.append(listItem);
     });
   });
 
 }
-     
+var boolval = false; 
+function getDepartmentValue(objButton){
+
+var id = objButton;
+boolval = true;
+
+}
+
 </script>   
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -218,8 +225,10 @@ var userDataRef = firebase.database().ref("departmentList").child(button_key).ch
 </div>
 </div>
 <script>
+  var departmentId = "PAN";
+var btnId = "topic_A";
   var database = firebase.database();
-  database.ref().child('departmentList').child('PAN').child('topicList').child('topic_A').child('thread').on('value', function(snapshot){
+  database.ref().child('departmentList').child(departmentId).child('topicList').child(btnId).child('thread').on('value', function(snapshot){
   if(snapshot.exists()){
   var content = '';
   snapshot.forEach(function(data){
