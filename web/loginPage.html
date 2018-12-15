@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>eBusiness Bootstrap Template</title>
+  <title>C . C . P</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -68,7 +68,7 @@
                 </button>
                 <!-- Brand -->
                 <a class="navbar-brand page-scroll sticky-logo" href="index.html">
-                  <h1><span>e</span>Business</h1>
+                  <h1><span>e</span>Company Collaboration Platform</h1>
                   <!-- Uncomment below if you prefer to use an image logo -->
                   <!-- <img src="img/logo.png" alt="" title=""> -->
                 </a>
@@ -98,7 +98,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-          <!-- <div class="slider-content text-center"> -->
+          <div class="slider-content text-center">
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@
       <div class="row">
 
         <!-- Start single blog -->
-        <div class="col-md-8 col-sm-8 col-xs-12">
+        <!-- <div class="col-md-8 col-sm-8 col-xs-12"> -->
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="clear"></div>
@@ -128,15 +128,14 @@
                         <p>Password *</p>
                         <input type="email" id="exampleInputPassword1"  />
                       </div>
-                          <button type="submit" class="btn btn-dark col-md-4" href="discussion_thread.php">LOGIN</button>
+                          <button type="button" class="btn btn-dark col-md-4" onclick="login();">LOGIN</button>
                     </div>
                   </form>
                 </div>
               </div>
-              <!-- single-blog end -->
             </div>
           </div>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -164,6 +163,12 @@
   <script src="contactform/contactform.js"></script>
 
   <script src="js/main.js"></script>
+
+  <script>
+    function login(){
+      window.location="user";
+    }
+  </script>
 </body>
 
 </html>
