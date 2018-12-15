@@ -9,6 +9,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>
+   var userId;
+   var userName;
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyARKMgF5Ik_20WkcChSNYrKh_Sxt17CG00",
@@ -19,6 +21,15 @@
     messagingSenderId: "708972282948"
   };
   firebase.initializeApp(config);
+
+  window.onload = function(){
+     firebase.auth().onAuthStateChanged(function(user){
+        if(user){
+           userId = user.uid;
+           console.log(userId);
+        }
+     });
+  }
 </script>
 
 <div id="wrapper">
@@ -49,11 +60,6 @@
             <input type="text" class="form-control" id="title">
          </div>
 
-         <div class="form-group">
-            <label for="post_category">Post Category Id</label>
-            <input type="text" class="form-control" id="post_category_id">
-         </div>
-
          <div class ="form-group">
             <label for="post_content">Post Content</Label>
             <textarea class="form-control" id="post_content" cols="30" rows="10"></textarea>
@@ -80,8 +86,14 @@
     var title = document.getElementById("title").value;
     var content = document.getElementById("post_content").value;
 
+   firebase.database().ref('/users/'+userId).once('value').then(function(snapshot){
+      userName = snapshot.val().name;
+      console.log(userName);
+   });
+
     firebase.database().ref().child("announcement").push({
       title: title,
+      userName: userName,
       content: content,
       postedTime: currentTime
     });
