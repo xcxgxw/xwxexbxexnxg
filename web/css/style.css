@@ -268,6 +268,16 @@ div#preloader {
   z-index: 9;
 }
 
+.header-area1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: rgba(33, 47, 60, 1);
+  z-index: 9;
+}
+
 .navbar-header a.navbar-brand {
   display: inline-block;
   height: 70px;
@@ -383,7 +393,7 @@ div#preloader {
 /*--------------------------------*/
 
 .header-area.stick {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(33, 47, 60, 1);
   height: 70px;
   position: fixed;
   top: 0;
@@ -2212,7 +2222,7 @@ div#preloader {
 .comments-heading h3, h3.comment-reply-title {
   border-bottom: 1px solid #e8e8e9;
   color: #444;
-  font-size: 18px;
+  font-size: 24px;
   margin: 0 0 20px;
   padding: 0 0 5px;
   text-transform: uppercase;
@@ -2297,7 +2307,16 @@ span.email-notes {
   height: 32px;
   margin-bottom: 15px;
   padding: 0 0 0 10px;
-  width: 100%;
+  width: 50%;
+}
+
+.comment-respond input[type=text], .comment-respond input[type=password] {
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
+  height: 32px;
+  margin-bottom: 15px;
+  padding: 0 0 0 10px;
+  width: 50%;
 }
 
 .comment-respond textarea#message-box {
