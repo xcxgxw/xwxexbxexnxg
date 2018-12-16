@@ -315,6 +315,8 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
       postedTime: currentTime,
       user: userName,
     });
+
+    $("#inputMessage").val('');
   }
   
 
