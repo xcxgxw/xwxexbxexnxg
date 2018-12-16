@@ -2,8 +2,6 @@
 <?php include "include/footer.php"?>
 <?php include "include/navigation.php"?>
 
-
-
 <body>
 
     <div id="wrapper">
@@ -41,7 +39,7 @@
                     permissionLevel = snapshot.val().permission;
                     if(permissionLevel != 1){
                         document.getElementById("postAnnouncement").style.display = "none";
-                        document.getElementById("calendar").style.display = "none";
+            
                     }
             });     
                 } else {

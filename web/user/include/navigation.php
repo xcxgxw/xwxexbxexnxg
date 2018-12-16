@@ -30,6 +30,7 @@
             </div>
 
             <script>
+                
                 window.onload = function() {
                     firebase.auth().onAuthStateChanged(function(user) {
                     if (user) {
@@ -38,8 +39,15 @@
 
                         firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
                             var name = (snapshot.val() && snapshot.val().name) || 'Anonymous';
+                            var permission = (snapshot.val() && snapshot.val().permission) || '0';
                             console.log(name);
+                            console.log(permission);
                             $("#getUserName").text(name);
+                            if(permission == "1"){
+                                document.getElementById("calendar").href = "eventcalendar/index.php";
+                            }else{
+                                document.getElementById("calendar").href = "eventcalendar/user_calendar.php";
+                            }
                         });
                     } else {
                         // User is not signed in.
@@ -100,7 +108,8 @@
                         <a href="discussion_thread.php"><i class="fa fa-fw fa-edit"></i> Discussion</a>
                     </li>
                     <li>
-                        <a id="calendar" href="eventcalendar/index.php"><i class="fa fa-fw fa-edit"></i> Event Calender</a>
+                        <!-- <a id="calendar" href="eventcalendar/index.php"><i class="fa fa-fw fa-edit"></i> Event Calender</a> -->
+                        <a id="calendar" href = "#"><i class="fa fa-fw fa-edit"></i> Event Calender</a>
                     </li>
  
                 </ul>
