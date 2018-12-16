@@ -43,7 +43,7 @@
                         });
                     } else {
                         // User is not signed in.
-                        alert("Sign In Failed");
+                        console.log("Sign In Failed");
                     }
                 });
                 }
@@ -58,13 +58,13 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i id="getUserName" class="fa fa-user"></i><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <!-- <a href="../loginPage.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a> -->
                             <!-- <button class="fa fa-fw fa-power-off" onclick="logout();">Log Out</button> -->
-                            <button class="btn btn-danger" onclick="logout();">Log Out</button>
+                            <button class="btn btn-danger" style="margin-left:20px;" onclick="logout();">Log Out</button>
                         </li>
                     </ul>
                 </li>
@@ -100,7 +100,7 @@
                         <a href="discussion_thread.php"><i class="fa fa-fw fa-edit"></i> Discussion</a>
                     </li>
                     <li>
-                        <a href="eventcalendar/index.php"><i class="fa fa-fw fa-edit"></i> Event Calender</a>
+                        <a id="calendar" href="eventcalendar/index.php"><i class="fa fa-fw fa-edit"></i> Event Calender</a>
                     </li>
  
                 </ul>
