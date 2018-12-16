@@ -25,6 +25,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
  crossorigin="anonymous"></script>
+
+
 <script>
 	// Initialize Firebase
 	var config = {
@@ -38,7 +40,10 @@
 	firebase.initializeApp(config);
 </script>
 
+
+
 <script>
+	var name;
                 
 	window.onload = function() {
 		firebase.auth().onAuthStateChanged(function(user) {
@@ -47,7 +52,7 @@
 			console.log(userId);
 
 			firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-				var name = (snapshot.val() && snapshot.val().name) || 'Anonymous';
+				name = (snapshot.val() && snapshot.val().name) || 'Anonymous';
 				var permission = (snapshot.val() && snapshot.val().permission) || '0';
 				console.log(name);
 				console.log(permission);
@@ -74,6 +79,7 @@
 </script>
 
 <body>
+	
 	<div class="header">
 		<div class="container">
 			<div class="row">
@@ -167,12 +173,13 @@
 					var currentTime = new Date().toLocaleString();
 					var title = document.getElementById("title").value;
 					var content = document.getElementById("post_content").value;
+					console.log(name);
 
 
 
 					firebase.database().ref().child("announcement").push({
 						title: title,
-						name: userName,
+						name: name,
 						content: content,
 						postedTime: currentTime
 					});
