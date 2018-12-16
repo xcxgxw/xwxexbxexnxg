@@ -111,7 +111,7 @@ body {
 }
 
 #calendar {
-    background-color: Gray;
+    background-color: gray;
     width: 800px;
     margin: 0 auto;
 }

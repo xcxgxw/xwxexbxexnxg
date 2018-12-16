@@ -23,10 +23,10 @@
 </script>
 <style>
   .container {
-    border: 2px solid #dedede;
-    background-color: rgb(131, 130, 133);
+    border: 2px solid #D4EFDF;
+    background-color: rgba(93, 109, 126, 0.8);
     border-radius: 5px;
-    padding: 1px;
+    padding: 10px;
     margin: 10px ;
   }
   
@@ -38,14 +38,15 @@
   
   .time-right {
     float: right;
-    color: rgb(192, 189, 189);
+    color: rgb(23, 32, 42);
     font-style: italic;
     font-size: 15px;
   }
   
   .name-left {
     float: left;
-    color: rgb(10, 10, 10);
+    font-weight: 900 ;
+    color: rgb(245, 176, 65);
     font-size: 15px;
   }
   </style>
@@ -257,7 +258,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel ="stylesheet" href = "threadDesign.css" type = "text/css">
 
-<body background ="https://i.imgur.com/QVFUaZP.jpg?1" onload = "loaddd()">
+<body background ="images/wooden.jpeg" onload = "loaddd()">
 <div class="slack">
   <nav class="teams">
     <ul class="teams__list">
@@ -297,8 +298,8 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
     </div>
     
     <div class='input box'>
-      <input type='text' id="inputMessage" placeholder='Write a comment...' style="width:90%;">
-      <button type="submit" id="submit" value="submit" style="background:white;height:44px;">Submit</button>
+      <input type='text' id="inputMessage" placeholder='Write a comment...' style="width:90%; border-radius: 10px; background-color: rgba(236, 240, 241,0.8);">
+      <button type="submit" id="submit" value="submit" style="background:white; padding:20px; border-radius: 12px; background-color:#D98880;">Submit</button>
  
     </div>
   </div>

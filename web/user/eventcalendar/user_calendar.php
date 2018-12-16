@@ -27,7 +27,6 @@ $(document).ready(function () {
     });
 });
 
-
 </script>
 
 <style>
@@ -40,7 +39,7 @@ body {
 }
 
 #calendar {
-    background-color: Gray;
+    background-color: rgb(247, 249, 249  )   ;
     width: 800px;
     margin: 0 auto;
 }
