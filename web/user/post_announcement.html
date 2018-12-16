@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>C . C . P</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- styles -->
+	<link href="css/styles.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+ crossorigin="anonymous"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyARKMgF5Ik_20WkcChSNYrKh_Sxt17CG00",
+		authDomain: "webengrg.firebaseapp.com",
+		databaseURL: "https://webengrg.firebaseio.com",
+		projectId: "webengrg",
+		storageBucket: "webengrg.appspot.com",
+		messagingSenderId: "708972282948"
+	};
+	firebase.initializeApp(config);
+</script>
+
+<script>
+                
+	window.onload = function() {
+		firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			var userId = user.uid;
+			console.log(userId);
+
+			firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+				var name = (snapshot.val() && snapshot.val().name) || 'Anonymous';
+				var permission = (snapshot.val() && snapshot.val().permission) || '0';
+				console.log(name);
+				console.log(permission);
+				$("#getUserName").text(name);
+				if(permission == "1"){
+					document.getElementById("calendar").href = "eventcalendar/index.php";
+				}else{
+					document.getElementById("calendar").href = "eventcalendar/user_calendar.php";
+				}
+			});
+		} else {
+			// User is not signed in.
+			console.log("Sign In Failed");
+		}
+	});
+	}
+</script>
+
+<script>
+	function logout() {
+		firebase.auth().signOut();
+		window.location = "../loginPage.html";
+	}
+</script>
+
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<!-- Logo -->
+					<div class="logo">
+						<h1><a href="index.html">Collaboration Company Platform</a></h1>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="row">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="navbar navbar-inverse" role="banner">
+						<nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+							<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+									<ul class="dropdown-menu animated fadeInUp">
+										<li><a href="profile.html">Profile</a></li>
+										<button class="btn btn-danger" style="margin-left:20px;" onclick="logout();">Log Out</button>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-content">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="sidebar content-box" style="display: block;">
+					<ul class="nav">
+						<!-- Main menu -->
+						<li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+						<li class="submenu">
+							<a href="#">
+								<i class="glyphicon glyphicon-tasks"></i> Announcement
+								<span class="caret pull-right"></span>
+							</a>
+							<!-- Sub menu -->
+							<ul>
+								<li><a href="view_announcement.html">View Announcement</a></li>
+								<li><a href="post_announcement.html">Post Announcement</a></li>
+							</ul>
+						</li>
+						<!-- <li><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Announcement</a></li> -->
+						<!-- <a id="calendar" href = "#"><i class="fa fa-fw fa-edit"></i> Event Calender</a> -->
+						<li><a id="calendar" href = "#"><i class="glyphicon glyphicon-calendar"></i> Event Calendar</a></li>
+						<li><a href="discussion_thread.php">Discussion</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-10">
+
+				<div class="col-md-12">
+					<div class="content-box-large">
+						<div class="panel-heading">
+							<div class="panel-title">Announcement</div>
+						</div>
+						<div class="panel-body">
+
+							<fieldset>
+								<div class="form-group">
+									<label>Announcement Title</label>
+									<input type="text" class="form-control" placeholder="Title" id="title">
+								</div>
+								<div class="form-group">
+									<label>Post Content</label>
+									<textarea class="form-control" placeholder="Content" rows="10" id="post_content"></textarea>
+								</div>
+							</fieldset>
+							<div>
+								<div class="form-group">
+									<input class="btn btn-primary" type="submit" id="submit" value="Publish Announcement">
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script>
+				function announcement() {
+					// var userId = firebase.auth().currentUser.uid;
+					var currentTime = new Date().toLocaleString();
+					var title = document.getElementById("title").value;
+					var content = document.getElementById("post_content").value;
+
+
+
+					firebase.database().ref().child("announcement").push({
+						title: title,
+						name: userName,
+						content: content,
+						postedTime: currentTime
+					});
+					document.getElementById("title").value = "";
+					document.getElementById("post_content").value = "";
+				}
+				$("#submit").click(function () {
+					announcement();
+					alert("Announcement published successfully!")
+				});
+
+			</script>
+
+
+			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+			<script src="https://code.jquery.com/jquery.js"></script>
+			<!-- jQuery UI -->
+			<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+			<!-- Include all compiled plugins (below), or include individual files as needed -->
+			<script src="bootstrap/js/bootstrap.min.js"></script>
+
+			<script src="vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
+
+			<script src="vendors/select/bootstrap-select.min.js"></script>
+
+			<script src="vendors/tags/js/bootstrap-tags.min.js"></script>
+
+			<script src="vendors/mask/jquery.maskedinput.min.js"></script>
+
+			<script src="vendors/moment/moment.min.js"></script>
+
+			<script src="vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
+
+			<!-- bootstrap-datetimepicker -->
+			<link href="vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
+			<script src="vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+
+			<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" />
+			<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+			<script src="js/custom.js"></script>
+			<script src="js/forms.js"></script>
+</body>
+
+</html>

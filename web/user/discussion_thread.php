@@ -336,7 +336,7 @@ var userDataRef = firebase.database().ref("departmentList").child(depart).child(
   }
 
   function backHomePage(){
-    window.location.href = "http://localhost/xwxexbxexnxg/web/user/index.php";
+    window.location.href = "http://localhost/xwxexbxexnxg/web/user/index.html";
   }
 
   </script>
